@@ -1,0 +1,6 @@
+[web]
+172.31.15.187
+
+[web:vars]
+ansible_ssh_private_key_file=~/jenkins-jgrog-key.pem
+ansible_user= ec2-user

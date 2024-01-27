@@ -1,0 +1,16 @@
+---
+- name: Download file from Artifactory
+  hosts: your_target_host
+  become: true  # Use 'become: true' if superuser privileges are required
+
+  tasks:
+    - name: Download file using curl
+      shell: "curl -u{{ artifactory_username }}:{{ artifactory_password }} -O 'http://ec2-51-20-132-82.eu-north-1.compute.amazonaws.com:8081/artifactory/july-devops/{{ target_file_path }}'"
+      args:
+        executable: /bin/bash
+      environment:
+        artifactory_username: "admin"
+        artifactory_password: "password"
+        target_file_path: "code"
+
+    # Add additional tasks as needed
